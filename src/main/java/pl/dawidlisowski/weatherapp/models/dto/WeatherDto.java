@@ -5,36 +5,42 @@ import com.google.gson.annotations.SerializedName;
 public class WeatherDto {
 
     @SerializedName("main")
-    private TempDto tempDto;
+    private MainDto mainDto;
 
-//    @SerializedName("pressure")
-//    private PressureDto pressureDto;
+    @SerializedName("wind")
+    private WindDto windDto;
 
-    public TempDto getTempDto() {
-        return tempDto;
+    public MainDto getMainDto() {
+        return mainDto;
     }
 
-//    public PressureDto getPressureDto() {
-//        return pressureDto;
-//    }
+    public WindDto getWindDto() {
+        return windDto;
+    }
 
-    public static class TempDto{
+    public static class MainDto{
 
         @SerializedName("temp")
         private double temp;
 
+        @SerializedName("pressure")
+        private int pressure;
+
+        public int getPressure() {
+            return pressure;
+        }
         public double getTemp() {
             return temp;
         }
     }
 
-//    public static class PressureDto{
-//
-//        @SerializedName("pressure")
-//        private double pressure;
-//
-//        public double getPressure() {
-//            return pressure;
-//        }
-//    }
+    public static class WindDto{
+
+        @SerializedName("speed")
+        private double speed;
+
+        public double getSpeed() {
+            return speed;
+        }
+    }
 }
